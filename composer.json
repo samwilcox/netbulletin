@@ -1,0 +1,21 @@
+{
+    "name": "netbulletin.net/netbulletin",
+    "description": "Bulletin Board System with PHP backend and React front end",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "NetbulletinNet\\Netbulletin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "samwilcox",
+            "email": "sam@netbulletin.net"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^1.19",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
