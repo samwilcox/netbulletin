@@ -108,13 +108,6 @@ interface DatabaseStructure {
     public function updateOne($table, $conditions, $data);
 
     /**
-     * Returns the last ID that was inserted into the database.
-     *
-     * @return string|int
-     */
-    public function getLastInsertId();
-
-    /**
      * Returns the total documents in the given table
      *
      * @param string $table the table name

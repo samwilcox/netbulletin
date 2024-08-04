@@ -11,24 +11,13 @@
  * https://license.netbulletin.net
  */
 
-error_reporting( E_ALL );
-ini_set( 'display_errors', true );
+// error_reporting(E_ALL);
+// ini_set('display_errors', true);
+error_reporting(0);
 
 require_once '../vendor/autoload.php';
 
-use NetBulletin\Controllers\UserController;
+use NetBulletin\App;
 
-// Allow cross-origin resource sharing
-header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
-
-$uri = $_SERVER['REQUEST_URI'];
-$method = $_SERVER['REQUEST_METHOD'];
-
-// Define all our routes
-if ($uri == '/api/users' && $method == 'GET') {
-    $controller = new UserController();
-    $controller->index;
-}
+$app = new App();
+$app->run();

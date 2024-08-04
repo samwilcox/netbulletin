@@ -1,0 +1,13 @@
+.topBarGridBlueButton a, .topBarGridBlueButton a:link, .topBarGridBlueButton a:active, .topBarGridBlueButton a:visited { color: #FFF; text-decoration: none; transition: 0.5s; padding: 10px 20px 10px 20px; font-weight: 700; background-color: #116689; display: inline-block; }
+.topBarGridBlueButton a:hover { color: #FFF; text-decoration: none; background-color: #188FC0; }
+.topBarGridRedButton a, .topBarGridRedButton a:link, .topBarGridRedButton a:active, .topBarGridRedButton a:visited { color: #FFF; text-decoration: none; transition: 0.5s; padding: 10px 20px 10px 20px; font-weight: 700; background-color: #B62230; display: inline-block; }
+.topBarGridRedButton a:hover { color: #FFF; text-decoration: none; background-color: #DE3040; }
+.topBarGridCreamButton a, .topBarGridCreamButton a:link, .topBarGridCreamButton a:active, .topBarGridRedButton a:visited { color: #000; text-decoration: none; transition: 0.5s; padding: 10px 20px 10px 20px; font-weight: 700; background-color: #C5A98B; display: inline-block; }
+.topBarGridCreamButton a:hover { color: #000; text-decoration: none; background-color: #B48F68; }
+.topBarGridWhiteButton a, .topBarGridWhiteButton a:link, .topBarGridWhiteButton a:active, .topBarGridWhiteButton a:visited { color: #000; text-decoration: none; transition: 0.5s; padding: 10px 20px 10px 20px; font-weight: 700; background-color: #EEE2D6; display: inline-block; }
+.topBarGridWhiteButton a:hover { color: #000; text-decoration: none; background-color: #E5D2BD; }
+.frontSearchInputButton a, .frontSearchInputButton a:link, .frontSearchInputButton a:active, .frontSearchInputButton a:visited { color: #FFF; text-decoration: none; background-color: #116689; transition: 0.5s; border-radius: 0px 5px 5px 0px; padding: 8px 10px 8px 10px; position: absolute; z-index: 5; top: 0.5px; right: 0.5px; }
+.frontSearchInputButton a:hover { color: #FFF; text-decoration: none; background-color: #188FC0; }
+.menuBar a, .menuBar a:link, .menuBar a:active, .menuBar a:visited { color: #FFF; text-decoration: none; transition: 0.5s; display: inline-block; padding: 8px 20px 8px 20px; }
+.menuBar a:hover { color: #FFF; text-decoration: none; background-color: #EB4901; }
+.menuBar a:first-of-type { border-radius: 5px 0 0 0; }

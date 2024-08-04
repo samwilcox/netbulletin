@@ -108,10 +108,10 @@ class NoCacheDriver extends DataCache implements CacheStructure {
      * @return array data for tables
      */
     public function getAll($tables) {
-        $result = [];
+        $result = new \stdClass();
 
-        foreach ($tables as $table) {
-            $result[$table] = $this->get($table);
+        foreach ($tables as $key => $table) {
+            $result->$key = $this->get($table);
         }
 
         return $result;

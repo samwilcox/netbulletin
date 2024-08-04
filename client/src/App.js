@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+/**
+ * NET BULLETIN
+ * 
+ * By Sam Wilcox <sam@netbulletin.net>
+ * https://www.netbulletin.net
+ * 
+ * This software is released under the MIT license.
+ * To view more details, visit:
+ * https://license.netbulletin.net
+ */
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes as Switch } from 'react-router-dom';
+import Layout from './components/Layout';
+import routes from './router/AppRoutes'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout>
+        <Switch>
+        {routes.map(({ path, exact, component: Component }, index) => (
+            <Route
+              key={index}
+              path={path}
+              element={<Component />}
+            />
+          ))}
+        </Switch>
+      </Layout>
+    </Router>
   );
 }
 

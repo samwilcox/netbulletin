@@ -13,7 +13,7 @@
 
 namespace NetBulletin\Data;
 
-use NetBulletin\Configs;
+use NetBulletin\Configs\Configs;
 use NetBulletin\Data\Database\MongoDBDriver;
 
 /**
@@ -41,19 +41,12 @@ class DatabaseFactory {
      *
      * @return void
      */
-    private function __clone() {}
+    public function __clone() {}
 
     /**
      * Prevent unserializing of the instance.
      */
-    private function __wakeup() {}
-
-    /**
-     * Constructor that sets up this class.
-     */
-    public function __construct() {
-        self::$configs = Configs::getInstance();
-    }
+    public function __wakeup() {}
 
     /**
      * Returns a singleton instance.
@@ -62,13 +55,15 @@ class DatabaseFactory {
      */
     public static function getInstance() {
         if (self::$instance === null) {
+            self::$configs = Configs::getInstance();
+
             switch (self::$configs->DATABASE_DRIVER) {
                 case 'mongodb':
                     self::$instance = new MongoDBDriver();
                     break;
 
                 default:
-                    throw new InvalidArgumentException('Unsupported database driver.');
+                    throw new \InvalidArgumentException('Unsupported database driver.');
             }
         }
 

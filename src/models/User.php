@@ -14,6 +14,7 @@
 namespace NetBulletin\Models;
 
 use NetBulletin\Data\CacheFactory;
+use NetBulletin\Helpers\IncomingHelper;
 
 /**
  * Class User
@@ -34,7 +35,7 @@ class User {
      * @return void
      */
     public static function initialize() {
-        self::$cache = new CacheFactory();
+        self::$cache = CacheFactory::getInstance();
     }
 
     /**
@@ -44,5 +45,23 @@ class User {
      */
     public static function all() {
         return self::$cache->get('users');
+    }
+
+    /**
+     * Returns a specific member's data.
+     *
+     * @return array
+     */
+    public static function member() {
+        $data = self::$cache->get('users');
+        $userId = IncomingHelper::get('memberid');
+
+        foreach ($data as $record) {
+            if ($record['id'] == $userId) {
+                return $record;
+            }
+        }
+
+        return null;
     }
 }

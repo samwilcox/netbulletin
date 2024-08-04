@@ -33,7 +33,8 @@ class DataCache {
     public function __construct() {
         $this->tables = [
             'users',
-            'configs'
+            'configs',
+            'installedthemes'
         ];
     }
 }

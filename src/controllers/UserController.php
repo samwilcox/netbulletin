@@ -11,7 +11,7 @@
  * https://license.netbulletin.net
  */
 
- namespace NetBulletin\Controller;
+ namespace NetBulletin\Controllers;
 
  use NetBulletin\Models\User;
  use NetBulletin\ApiResponse;
@@ -37,5 +37,15 @@
     public function index() {
         $users = User::all();
         ApiResponse::success($users);
+    }
+
+    /**
+     * Returns a specific member's data.
+     *
+     * @return void
+     */
+    public function member() {
+        $user = User::member();
+        ApiResponse::success($user);
     }
  }

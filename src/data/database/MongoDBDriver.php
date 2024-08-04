@@ -16,13 +16,15 @@ namespace NetBulletin\Data\Database;
 use MongoDB\Client as MongoClient;
 use NetBulletin\ErrorLogger;
 use NetBulletin\ApiResponse;
+use NetBulletin\Data\DatabaseStructure;
+use NetBulletin\Configs\Configs;
 
 /**
  * Class MongoDBDriver
  * 
  * The database abstraction driver for MongoDB.
  */
-class MongoDBDriver implements NetBulletin\Data\DatabaseStructure {
+class MongoDBDriver implements DatabaseStructure {
     /**
      * The client object.
      *
@@ -62,7 +64,7 @@ class MongoDBDriver implements NetBulletin\Data\DatabaseStructure {
      * Constructor that sets up this class.
      */
     public function __construct() {
-        $this->configs = \NetBulletin\Configs::Configs::getInstance();
+        $this->configs = Configs::getInstance();
     }
 
     /**
@@ -100,7 +102,7 @@ class MongoDBDriver implements NetBulletin\Data\DatabaseStructure {
     public function find($table, $conditions = []) {
         try {
             $collection = $this->database->selectCollection($table);
-            return $collection->find($conditions['filter'], $conditions['options'])->toArray();
+            return count($conditions) > 0 ? $collection->find($conditions['filter'], $conditions['options'])->toArray() : $collection->find()->toArray();
         } catch (MongoDBException $e) {
             $this->handleError($e);
         }
@@ -116,7 +118,7 @@ class MongoDBDriver implements NetBulletin\Data\DatabaseStructure {
     public function findOne($table, $conditions = []) {
         try {
             $collection = $this->database->selectCollection($table);
-            return $collection->findOne($conditions['filter'], $conditions['options']);
+            return count($conditions) > 0 ? $collection->findOne($conditions['filter'], $conditions['options']) : $collection->findOne();
         } catch (MongoDBException $e) {
             $this->handleError($e);
         }

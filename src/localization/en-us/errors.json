@@ -1,0 +1,8 @@
+{
+    "entityCreateInvalidParameter": "Invalid parameter occured while processing a new entity object instance",
+    "sessionEntityInvalidParameter": "Invalid parameter occured while instantiating a new session object instance",
+    "csrfTokenMissing": "The CSRF token could not be located in the session data",
+    "csrfOriginError": "The origin of the given CSRF token does not match the original CSRF token",
+    "csrfTokenDoesNotMatch": "The given CSRF token does not match the original CSRF token",
+    "csrfTokenExpired": "The given CSRF token has passed it's expiration and is no longer valid"
+}

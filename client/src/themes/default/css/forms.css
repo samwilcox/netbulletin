@@ -1,0 +1,5 @@
+form { padding: 0px; margin: 0px; }
+input, select, textarea { font-family: 'Roboto', sans-serif; font-size: 13px; color: #000; background-color: #FFF; border-radius: 5px; outline: 0px; border: 1px solid #808080; padding: 8px; }
+input:hover, select:hover, textarea:hover { border: 1px solid #B62230; }
+input:focus, select:focus, textarea:focus { outline: 3px solid #B62230; }
+.frontSearchInput { padding-right: 30px; width: 330px; }

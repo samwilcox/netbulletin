@@ -1,0 +1,13 @@
+{
+    "metadata": {
+        "name": "English (US-American)",
+        "direction": "ltr",
+        "version": "1.0",
+        "author": "Net Bulletin",
+        "authorEmail": "sam@netbulletin.net",
+        "authorUrl": "https://www.netbulletin.net"
+    },
+    "files": [
+        "global.json"
+    ]
+}

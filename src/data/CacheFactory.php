@@ -13,7 +13,7 @@
 
 namespace NetBulletin\Data;
 
-use NetBulletin\Configs;
+use NetBulletin\Configs\Configs;
 use NetBulletin\Data\Cache\NoCacheDriver;
 
 /**
@@ -41,19 +41,12 @@ class CacheFactory {
      *
      * @return void
      */
-    private function __clone() {}
+    public function __clone() {}
 
     /**
      * Prevent unserializing of the instance.
      */
-    private function __wakeup() {}
-
-    /**
-     * Constructor that sets up this class.
-     */
-    public function __construct() {
-        self::$configs = Configs::getInstance();
-    }
+    public function __wakeup() {}
 
     /**
      * Returns a singleton instance.
@@ -62,6 +55,8 @@ class CacheFactory {
      */
     public static function getInstance() {
         if (self::$instance === null) {
+            self::$configs = Configs::getInstance();
+
             if (self::$configs->CACHE) {
                 self::$instance = new NoCacheDriver();
             } else {
@@ -70,7 +65,7 @@ class CacheFactory {
                         self::$instance = new NoCacheDriver();
                         break;
                     default:
-                    throw new InvalidArgumentException('Unsupported database cache driver.');
+                    throw new \InvalidArgumentException('Unsupported database cache driver.');
                 }
             }
         }
